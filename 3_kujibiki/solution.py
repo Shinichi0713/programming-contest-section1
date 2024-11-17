@@ -1,5 +1,6 @@
 import unittest
 
+# 2分け探索
 def search_binary(num_desired, array_kuji):
     posi_start = 0
     posi_end = len(array_kuji) - 1
