@@ -1,6 +1,7 @@
 import unittest
 import os
 
+# 探索の再帰関数
 def solution(array_target):
     count_lake = 0
     return count_lake
