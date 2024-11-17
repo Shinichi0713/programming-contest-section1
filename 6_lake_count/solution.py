@@ -1,11 +1,26 @@
 import unittest
-import os
+import os, copy
 
 # 探索の再帰関数
 def solution(array_target):
     count_lake = 0
+    array_count = copy.deepcopy(array_target)
+
     return count_lake
 
+def find_neighbor(array_target, row, col):
+    count = 0
+    for i in range(-1, 2):
+        for j in range(-1, 2):
+            if i == 0 and j == 0:
+                continue
+            if row + i < 0 or row + i >= len(array_target):
+                continue
+            if col + j < 0 or col + j >= len(array_target[0]):
+                continue
+            if array_target[row + i][col + j] == 1:
+                count += 1
+    return count
 
 def read_input(file_target):
     array_read = []
@@ -23,5 +38,6 @@ class TestSolution(unittest.TestCase):
     
 
 if __name__ == "__main__":
-    # array_read = read_input(f"{os.path.dirname(__file__)}/test.txt")
-    unittest.main(argv=['first-arg-is-ignored'], exit=False)
+    array_read = read_input(f"{os.path.dirname(__file__)}/test.txt")
+    solution(array_read)
+    # unittest.main(argv=['first-arg-is-ignored'], exit=False)
